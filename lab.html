@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //actividad
+        let num1 = 10; 
+        let num2 = 5;
+        let operaciones = ["suma", "resta", "multiplicacion", "division"];
+
+        function realizarOperacion(num1, num2, operacion) {
+            let resultado;
+
+            if (operacion === "suma") {
+                resultado = num1 + num2;
+            } else if (operacion === "resta") {
+                resultado = num1 - num2;
+            } else if (operacion === "multiplicacion"){
+                resultado = num1 * num2;
+            } else if (operacion === "division") {
+                if (num2 === 0) {
+                    return "error, no se puede dividir entre cero.";
+                }
+                resultado = num1 / num2;
+            } else {
+                return "operacion no valida. Las opciones son: suma, resta, multiplicacion, division.";
+            }
+            return resultado;
+        }
+
+        //Bucle para realizar múltiples operaciones
+        let continuar = true;
+        while (continuar) {
+            num1 = prompt("Ingresa el primer numero:", 10);
+            num2 = prompt("Ingresa el segundo numero:", 5);
+            operacion = prompt("Ingrese la operación (suma, resta, multiplicacion, division) o 'salir' para terminar:");
+
+            if (operacion === "salir") {
+                alert("Gracias por usar la calculadora, adios.");
+                continuar = false;
+            } else {
+                let resultado = realizarOperacion(parseFloat(num1), parseFloat(num2), operacion);
+                alert("El resultado es: " + resultado);
+            }
+        }
+
+    </script>
+</body>
+</html>
